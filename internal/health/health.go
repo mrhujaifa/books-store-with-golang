@@ -6,5 +6,5 @@ import (
 )
 
 func HealthHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "OK")
+	fmt.Fprintln(w, "Response OK")
 }
