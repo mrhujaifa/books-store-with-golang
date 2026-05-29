@@ -12,6 +12,7 @@ type App struct {
 	server *http.Server
 }
 
+// newapp config
 func NewApp(cfg *config.Config, db *gorm.DB) *App {
 	mux := http.NewServeMux()
 
