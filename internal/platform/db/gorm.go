@@ -6,7 +6,12 @@ import (
 )
 
 func NewPostgres(dsn string) (*gorm.DB, error) {
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.New(postgres.Config{
+		DSN:                  dsn,
+		PreferSimpleProtocol: true,
+	}), &gorm.Config{
+		PrepareStmt: false,
+	})
 	if err != nil {
 		return nil, err
 	}

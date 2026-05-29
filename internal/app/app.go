@@ -15,7 +15,7 @@ type App struct {
 func NewApp(cfg *config.Config, db *gorm.DB) *App {
 	mux := http.NewServeMux()
 
-	RegisterRoutes(mux, db)
+	RegisterRoutes(cfg, mux, db)
 
 	server := &http.Server{
 		Addr:    ":" + cfg.Port,
